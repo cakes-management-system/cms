@@ -9,3 +9,4 @@ jobs:
     uses: cakes-management-system/ci-cd/.github/workflows/build-with-maven.yml@master
     with:
       display-name: Common Library
+      sonar: true
