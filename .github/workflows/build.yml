@@ -1,0 +1,11 @@
+name: Build CMS starter
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-cms-starter:
+    uses: cakes-management-system/ci-cd/.github/workflows/build-with-maven.yml@master
+    with:
+      display-name: Common Library
