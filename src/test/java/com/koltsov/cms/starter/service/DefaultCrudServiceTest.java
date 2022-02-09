@@ -1,6 +1,7 @@
 package com.koltsov.cms.starter.service;
 
 import com.koltsov.cms.starter.exceptions.NotFoundException;
+import com.koltsov.cms.starter.helper.TestModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 
+import static com.koltsov.cms.starter.helper.TestModelHelper.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
@@ -23,9 +25,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultCrudServiceTest extends DefaultCrudService<TestModel, Long> {
-
-    private static final Long ID = 1L;
-    private static final Long UNKNOWN_ID = 2L;
 
     @Mock
     private JpaRepository<TestModel, Long> repository;
@@ -125,9 +124,5 @@ class DefaultCrudServiceTest extends DefaultCrudService<TestModel, Long> {
         when(repository.findById(ID)).thenReturn(Optional.empty());
 
         assertThrows(NotFoundException.class, () -> defaultCrudService.delete(ID));
-    }
-
-    private TestModel testModel() {
-        return new TestModel(ID, "some-field");
     }
 }

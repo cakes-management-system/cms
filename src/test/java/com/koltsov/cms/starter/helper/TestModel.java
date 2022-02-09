@@ -1,4 +1,4 @@
-package com.koltsov.cms.starter.service;
+package com.koltsov.cms.starter.helper;
 
 import com.koltsov.cms.starter.data.IdAble;
 import lombok.AllArgsConstructor;
