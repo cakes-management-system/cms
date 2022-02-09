@@ -10,10 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-public abstract class CrudController<T, ID, D, CD> {
+public abstract class CrudController<T, ID, D, C> {
 
     private final CrudService<T, ID> crudService;
-    private final GenericMapper<T, D, CD> mapper;
+    private final GenericMapper<T, D, C> mapper;
 
     @GetMapping
     public Page<D> getPage(@ParameterObject Pageable pageable) {
@@ -28,7 +28,7 @@ public abstract class CrudController<T, ID, D, CD> {
     }
 
     @PostMapping
-    public D create(@RequestBody CD createDto) {
+    public D create(@RequestBody C createDto) {
         T t = mapper.toNewEntity(createDto);
         T created = crudService.create(t);
         return mapper.toDto(created);

@@ -3,7 +3,6 @@ package com.koltsov.cms.starter.config;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
-    @Autowired
-    private BuildProperties buildProperties;
-
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI customOpenAPI(BuildProperties buildProperties) {
         return new OpenAPI()
                 .info(new Info()
                         .title(buildProperties.getName())

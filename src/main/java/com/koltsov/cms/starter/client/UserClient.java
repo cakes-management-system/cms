@@ -21,7 +21,7 @@ public interface UserClient {
     UserDto createUser(@RequestBody UserCreateDto userCreateDto);
 
     @PutMapping("{userId}")
-    UserDto updateUserById(@PathVariable("userId") Long userId, @RequestBody UserDto UserDto);
+    UserDto updateUserById(@PathVariable("userId") Long userId, @RequestBody UserDto userDto);
 
     @DeleteMapping("{userId}")
     void deleteUserById(@PathVariable("userId") Long userId);
