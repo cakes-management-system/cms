@@ -10,4 +10,5 @@ jobs:
     with:
       display-name: Common Library
       sonar: true
+    secrets:
       sonar-token: ${{ secrets.SONAR_TOKEN }}
