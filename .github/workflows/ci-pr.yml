@@ -1,4 +1,4 @@
-name: Build CMS starter
+name: CI CMS starter
 
 on:
   pull_request:
