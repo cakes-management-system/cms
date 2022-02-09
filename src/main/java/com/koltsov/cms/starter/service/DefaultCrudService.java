@@ -2,7 +2,7 @@ package com.koltsov.cms.starter.service;
 
 import com.koltsov.cms.starter.data.IdAble;
 import com.koltsov.cms.starter.exceptions.NotFoundException;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,10 +11,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 public abstract class DefaultCrudService<T extends IdAble<ID>, ID> implements CrudService<T, ID> {
 
-    private final JpaRepository<T, ID> repository;
+    @Autowired
+    private JpaRepository<T, ID> repository;
 
     @Override
     public List<T> getAll() {

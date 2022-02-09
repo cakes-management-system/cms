@@ -18,10 +18,10 @@ public interface OrderClient {
     OrderDto getOrderById(@PathVariable("orderId") Long orderId);
 
     @PostMapping
-    OrderDto createOrder(@RequestBody OrderCreateDto OrderCreateDto);
+    OrderDto createOrder(@RequestBody OrderCreateDto orderCreateDto);
 
     @PutMapping("{orderId}")
-    OrderDto updateOrderById(@PathVariable("orderId") Long orderId, @RequestBody OrderDto OrderDto);
+    OrderDto updateOrderById(@PathVariable("orderId") Long orderId, @RequestBody OrderDto orderDto);
 
     @DeleteMapping("{orderId}")
     void deleteOrderById(@PathVariable("orderId") Long orderId);
