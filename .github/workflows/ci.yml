@@ -5,11 +5,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build-cms-starter:
+  build:
     uses: cakes-management-system/ci-cd/.github/workflows/build-with-maven.yml@master
     with:
       display-name: Common Library
       publish: true
       sonar: true
+      sonar-project-key: cakes-management-system_cms-starter
     secrets:
       sonar-token: ${{ secrets.SONAR_TOKEN }}
